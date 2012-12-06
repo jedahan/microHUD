@@ -27,7 +27,6 @@ GUIMarineStatus.kParasiteColor[NO_PARASITE] = Color(0,0,0,0)
 GUIMarineStatus.kParasiteColor[PARASITED] = Color(0xFF / 0xFF, 0xFF / 0xFF, 0xFF / 0xFF, 0.8)
 GUIMarineStatus.kParasiteColor[ON_INFESTATION] = Color(0.7, 0.4, 0.4, 0.8)
 
-GUIMarineStatus.kStatusTexture = PrecacheAsset("ui/marine_HUD_status.dds")
 GUIMarineStatus.kBackgroundCoords = { 0, 0, 300, 121 }
 GUIMarineStatus.kBackgroundPos = Vector(30, -160, 0)
 GUIMarineStatus.kBackgroundSize = Vector(GUIMarineStatus.kBackgroundCoords[3], GUIMarineStatus.kBackgroundCoords[4], 0)
@@ -54,7 +53,6 @@ function GUIMarineStatus:Initialize()
     
     self.statusbackground = self.script:CreateAnimatedGraphicItem()
     self.statusbackground:SetAnchor(GUIItem.Left, GUIItem.Bottom)
-    self.statusbackground:SetTexture(GUIMarineStatus.kStatusTexture)
     self.statusbackground:SetTexturePixelCoordinates(unpack(GUIMarineStatus.kBackgroundCoords))
     self.statusbackground:AddAsChildTo(self.frame)
     
