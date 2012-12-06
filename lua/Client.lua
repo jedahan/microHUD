@@ -687,16 +687,16 @@ function OnUpdateRender()
         UpdateFogAreaModifiers(coords.origin)
         
         camera:SetCoords(coords)
-		
+        
         local adjustValue   = Clamp( Client.GetOptionFloat("graphics/display/fov-adjustment",0), 0, 1 )
-		local adjustRadians = math.rad(
-			(1-adjustValue)*kMinFOVAdjustmentDegrees + adjustValue*kMaxFOVAdjustmentDegrees)
-		
-		// Don't adjust the FOV for the commander.
-		if player:isa("Commander") then
-		    adjustRadians = 0
-	    end
-			
+        local adjustRadians = math.rad(
+            (1-adjustValue)*kMinFOVAdjustmentDegrees + adjustValue*kMaxFOVAdjustmentDegrees)
+        
+        // Don't adjust the FOV for the commander.
+        if player:isa("Commander") then
+            adjustRadians = 0
+        end
+            
         camera:SetFov(player:GetRenderFov()+adjustRadians)
         
         // In commander mode use frustum culling since the occlusion geometry
@@ -876,7 +876,7 @@ function OnClientDisconnected(reason)
         GetGUIManager():DestroyGUIScript(item)
     end
     
-    // Hack to avoid script error if load hasn't completed yet.
+    -- Hack to avoid script error if load hasn't completed yet.
     if Client.SetOptionString then
         Client.SetOptionString("lastServerMapName", "")
     end
